@@ -5,9 +5,7 @@
   
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,25 +15,54 @@
 
 
   <body>
+<div class= "container">
+  <data-spy="scroll" data-target=".navbar">
+     <!--navbar starts here-->
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="index"> Home </a></li>
+              <li><a href="about"> About </a></li>
+              <li><a href="Products"> Products </a></li>
+              <li><a  href="contact"> Contact Info </a></li> 
+          </ul>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse"
+              data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div> <!-- nav -->
+          </div> <!-- end nav container-->
+        </div>
+    </nav> <!-- end navbar--> <br><br><br>
 
-  <nav>
-  <ul>
-    <li>Home</li>
-    <li>About</li>
-    <li>Contact</li>
-  </ul>
-</nav>
 
-<%= yield %>
+<div class= "pull-right">
+<%= form_tag products_path, method: 'get' do %>
+  <%= label_tag 'Search for:' %>
+  <%= text_field_tag :q, nil, value: params[:q] %>
+  <%= submit_tag 'Search' %>
+<% end %></div>
+<br> <br>
 
+<div class = "image-girlshoppe">
+<div><h2> <center>Glimmer Girl Shoppe </h2></center></div>
+<center><%= image_tag("girls.jpg", :alt => "girls-pic", width: "1000", height:"300") %><center></h2><br>
+
+ <%= yield %>
+
+</div>
 <footer> <br><br><br>
 
-  &copy; 2017 Bike Berlin.
+  &copy; 2017 Glimmer Girl Shoppe.
  <%= fa_stacked_icon "camera-retro", base: "square-o"%>
 
   <%= fa_stacked_icon "facebook-square", base: "square-o", class: "pull-right" %>
   <%= fa_stacked_icon "twitter", base: "square-o", class: "pull-right" %>
-
 </footer>
 
  
