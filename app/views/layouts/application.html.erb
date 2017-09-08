@@ -15,6 +15,14 @@
 
 
   <body>
+<% if notice %>
+    <p id="notice" class="alert alert-info"><%= notice %></p>
+<% end %>
+
+<% if alert %>
+<p id="alert" class="alert alert-info"><%= alert %></p>
+<% end %>
+
 <div class= "container">
   <data-spy="scroll" data-target=".navbar">
      <!--navbar starts here-->
@@ -25,8 +33,20 @@
               <li><a href="index"> Home </a></li>
               <li><a href="about"> About </a></li>
               <li><a href="Products"> Products </a></li>
-              <li><a  href="contact"> Contact Info </a></li> 
-          </ul>
+              <li><a  href="contact"> Contact Info </a>
+              </li> 
+            </ul>
+
+<ul class="nav pull-right">
+  <li>
+  <% if user_signed_in? %>
+    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+  <% else %>
+    <%= link_to('Login', new_user_session_path) %>
+  <% end %>
+  </li>
+</ul>
+
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse"
               data-target=".navbar-collapse">
@@ -51,11 +71,11 @@
 
 <div class = "image-girlshoppe">
 <div><h2> <center>Glimmer Girl Shoppe </h2></center></div>
-<center><%= image_tag("girls.jpg", :alt => "girls-pic", width: "1000", height:"300") %><center></h2><br>
+<center><%= image_tag("girls.jpg", :alt => "girls-pic", width: "1000", height:"300") %></center></div></h2><br>
 
  <%= yield %>
 
-</div>
+
 <footer> <br><br><br>
 
   &copy; 2017 Glimmer Girl Shoppe.

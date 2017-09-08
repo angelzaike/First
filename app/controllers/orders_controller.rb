@@ -1,10 +1,11 @@
 class OrdersController < ApplicationController
-
+before_action :authenticate_user!
   def index
   end
 
   def show
   end
+
 
   def new
   end
@@ -14,5 +15,6 @@ class OrdersController < ApplicationController
 
   def destroy
   end
+
 
 end
