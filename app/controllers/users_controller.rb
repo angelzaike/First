@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
   before_action :authenticate_user!, except: [:show, :index]
   load_and_authorize_resource
   # GET /users
@@ -63,20 +62,26 @@ class UsersController < ApplicationController
     end
   end
 
- 
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:first_name, :last_name)
     end
-   
-   def user 
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user
-    else
-      render 'new'
-    end
+
+   def new
+    @user = User.new 
   end
+  def create
+    @user = User.new(params[:user])
+    if @user.save
+      flash[:notice] = "You signed up successfully"
+      flash[:color]= "valid"
+    else
+      flash[:notice] = "Form is invalid"
+      flash[:color]= "invalid"
+    end
+    render "new"
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
