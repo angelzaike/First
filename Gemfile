@@ -1,5 +1,4 @@
-source 'https://rubygems.org’
-
+source 'https://rubygems.org
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -62,5 +61,4 @@ gem "font-awesome-rails"
 gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'will_paginate', '~> 3.1.0'
-gem 'puma'
 ruby '2.3.4'
