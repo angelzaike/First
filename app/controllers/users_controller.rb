@@ -14,12 +14,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     unless @user == current_user
       redirect_to :back, :alert => "Access denied."
-      if else
-         @user = User.new
-       end
+      else
+         @user = User.new 
      end
    end
-  end
+ end
 
   # GET /users/new
   def new
@@ -81,8 +80,10 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
     end
+  end
 
-    @users  = User.paginate(:page => params[:page], :per_page=>10)
-
- end
+  @users  = User.paginate(:page => params[:page], :per_page=>10)
+  end
 end
+
+    

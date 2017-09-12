@@ -11,5 +11,8 @@ protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit([:sign_up, :account_update, keys: [:first_name]])
   end
-
 end
+
+
+
+
