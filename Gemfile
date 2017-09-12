@@ -67,3 +67,4 @@ gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'cancancan', '~> 1.10'
+gem 'rack-timeout'
