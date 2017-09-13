@@ -71,7 +71,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name)
+     params.require(:user).permit(:first_name, :last_name)
     end
 
 
@@ -83,7 +83,7 @@ class UsersController < ApplicationController
   end
 
   @users  = User.paginate(:page => params[:page], :per_page=>10)
-  end
+
 end
 
     

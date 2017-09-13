@@ -40,10 +40,9 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'sqlite3'
+  gem 'rspec-rails', '~> 3.6'
   gem 'factory_girl_rails'
-%w[rspec rspec-core rspec-expectations rspec-mocks rspec-support].each do |lib|
-  gem lib, :git => "git://github.com/rspec/#{lib}.git", :branch => 'master'
-end
+  gem 'rails-controller-testing'
 end
 
 
