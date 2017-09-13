@@ -41,7 +41,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'sqlite3'
   gem 'rspec-rails', '~> 3.6'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'rails-controller-testing'
 end
 
@@ -67,3 +67,4 @@ gem "font-awesome-rails"
 gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'rack-timeout'
+gem 'stripe'

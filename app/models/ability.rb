@@ -1,9 +1,6 @@
 class Ability
   include CanCan::Ability
 
-  dclass Ability
-  include CanCan::Ability
-
   def initialize(user)
     user ||= User.new # guest user (not logged in)
     if user.admin?
@@ -11,8 +8,8 @@ class Ability
     else
       can :read, :all
     end
-  end
 end
+
     
     
 
@@ -42,5 +39,4 @@ end
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-  end
-end
+ end
