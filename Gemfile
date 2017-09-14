@@ -65,6 +65,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'devise'
-gem 'cancancan', '~> 1.10'
+gem 'cancancan', '~> 2.0'
 gem 'rack-timeout'
 gem 'stripe'

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    unless @user == current_user
+    unless current_user.admin || @user == current_user
       redirect_to :back, :alert => "Access denied."
       else
          @user = User.new 
@@ -69,23 +69,20 @@ class UsersController < ApplicationController
     end
   end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-     params.require(:user).permit(:first_name, :last_name)
-    end
+
 
 
 
   private
+
+      # Never trust parameters from the scary internet, only allow the white list through.
+    def user_params
+     params.require(:user).permit(:first_name, :last_name)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
-    
-
-  
-
-
   @users  = User.paginate(:page => params[:page], :per_page=>10)
-
 end
-    
+
