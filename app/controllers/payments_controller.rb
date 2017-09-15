@@ -13,4 +13,12 @@ class PaymentsController < ApplicationController
       # The card has been declined
     end
   end
+  def product_id
+   @product = Product.payment(product_params)
+ 
+ def 
+  @user == current_user
+
+end
+
 end
