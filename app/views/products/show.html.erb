@@ -12,7 +12,7 @@
 
 <p>
   <strong>Image url:</strong>
-  <%= image_tag @product.image_url, width: 500, height: 500%>
+  <%= image_tag @product.image_url, width: 500, height: 500, class: "img-zoom"%>
 </p>
 
 <p>
@@ -24,6 +24,7 @@
   <strong>Color:</strong>
   <%= @product.color %>
 </p>
+<p>Average Rating: <div class="rated" id="average-rating" data-score="<%= @product.average_rating %>"></div> </p>
 
 <%= form_with(url: '/payments/create') do |form| %>
   <%= hidden_field_tag(:product_id, @product.id) %>
@@ -35,3 +36,5 @@
 
 <%= render 'new_comment' %>
 <%= render 'comments' %>
+
+<%= will_paginate @comments %>
