@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
   def create
   	@product = Product.find(params[:product_id])
-  	# @product.price = params[:product_price]
+  	#@product.price = params[:product_price]
   	@user == current_user
     token = params[:stripeToken]
     # Create the charge on Stripe's servers - this will charge the user's card
@@ -14,8 +14,8 @@ class PaymentsController < ApplicationController
   )
  
   if charge.paid
-  	Order.create()
-  end
+  	Order.create(:user_id => @user, :product_id => @product.id, :total=> @product.price)
+   end
     rescue Stripe::CardError => e
       # The card has been declined
       body = e.json_body
