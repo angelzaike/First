@@ -22,7 +22,7 @@ products = Product.create([{
 products = Product.create([{
 	name: 'Mermaid',
 	description: 'High heels with glossy skin.',
-	image_url: 'https://i.imgur.com/HlM7fgk.jpg',
+	image_url: 'https://i.imgur.com/GTgQXJH.jpg',
 	price: '$45.00',
 	color: "Beige"
 }])
@@ -36,7 +36,7 @@ products = Product.create([{
 products = Product.create([{
 	name: 'Heiress',
 	description: 'Stiletto silver design with strap.',
-	image_url: 'https://i.imgur.com/HlM7fgk.jpg',
+	image_url: 'https://i.imgur.com/3tT9azF.jpg',
 	price: '$45.00',
 	color: "Silver"
 }])
@@ -92,7 +92,7 @@ products = Product.create([{
 products = Product.create([{
 	name: 'Mermaid2',
 	description: 'High heels with glossy skin.',
-	image_url: 'https://i.imgur.com/HlM7fgk.jpg',
+	image_url: 'https://i.imgur.com/GTgQXJH.jpg',
 	price: '$45.00',
 	color: "Beige"
 }])
@@ -106,7 +106,7 @@ products = Product.create([{
 products = Product.create([{
 	name: 'Heiress2',
 	description: 'Stiletto silver design with strap.',
-	image_url: 'https://i.imgur.com/HlM7fgk.jpg',
+	image_url: 'https://i.imgur.com/3tT9azF.jpg',
 	price: '$45.00',
 	color: "Silver"
 }])
