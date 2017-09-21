@@ -1,5 +1,5 @@
 
-
+<% cache product do %>
   <div class="row">
   <% products.each do |product| %>
     <div class="col-sm-2 col-md-4">
@@ -9,9 +9,10 @@
       <strong>$ <%= product.price %></strong>
     </div>
   <% end %>
+  <% end %>
 </div>
 
 <%= render 'comments' %> 
 
-<%= will_paginate @comment_paginator %>
+
 

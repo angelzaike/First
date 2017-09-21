@@ -2,6 +2,7 @@
 
 <h1>Products</h1>
 
+<% cache @product do %>
 <div class="container-fluid">
   <div class="row">
     <% @products.each do |product| %>
@@ -18,10 +19,11 @@
         <% end %>
        </div>
       <% end %>
+      <% end %>
   </div>
 </div>
 
 
 
-<%= link_to 'New Product', new_product_path %>
+<br><%= link_to 'New Product', new_product_path %> <br>
 <%=will_paginate @products%>
