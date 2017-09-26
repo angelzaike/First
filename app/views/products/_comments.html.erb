@@ -1,7 +1,6 @@
+
 <div class="product-reviews">
     <% @comments.each do |comment| %>
       <%= render comment %>
     <% end %>
 </div>
-<%= current_user.first_name %>
-<%= will_paginate @comments %>

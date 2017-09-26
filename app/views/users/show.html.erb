@@ -1,3 +1,4 @@
+<% if signed_in? %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -8,7 +9,7 @@
 <p>
   <strong>Last name:</strong><br>
   <%= @user.last_name %>
-</p>
+</p><% end %>
 
 
 <%= link_to 'Back', users_path %>

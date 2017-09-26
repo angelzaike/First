@@ -4,20 +4,20 @@ class UsersController < ApplicationController
   load_and_authorize_resource
    # GET /users
   # GET /users.json
-  
-   def index
-    @users = User.all
+
+def index
+  @users== current_user
+  unless
+  @admin== User.all 
   end
+end
 
 
   # GET /users/1
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    unless current_user.admin || @user == current_user
-      redirect_to :back, :alert => "Access denied."   
    end
- end
  # GET /users/new
 def new
     @user = User.new
@@ -31,7 +31,7 @@ def new
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        format.json { render :show, status: :created, location: @user}
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -57,14 +57,22 @@ end
   end
   # DELETE /users/1
   # DELETE /users/1.json
-  def destroy
+ def destroy
     @user.destroy
     respond_to do |format| 
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+   
+  
+    private 
+     def set_user
+      @user = User.find(params[:id])
+    end
+    def user_params
+    params.require(:user).permit(:name, :last_name)
 
-   @users  = User.paginate(:page => params[:page], :per_page=>10)
-end
-
+    @users  = User.paginate(:page => params[:page], :per_page=>10)
+  end
 end
