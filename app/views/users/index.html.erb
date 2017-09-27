@@ -1,37 +1,60 @@
-<% if signed_in? %>
-
-<p id="notice"><%= notice %></p>
-
+<p id="notice">
+  <%= notice %>
+</p>
 <h3>Users</h3>
-
- 
-<div class="row"><div class="col-md-6">
-<table class="table table-bordered"></div>
-</div>
-  <thead>
-      <th><p>First Name</p></th>
-      <th><p>Last Name</p></th>
-      <% if user_signed_in? && current_user.admin? %>
-      <th><p>Actions </p></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <% end %>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-       <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <% if user_signed_in? && current_user.admin? %>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<div class="row" style="padding-bottom: 10px;">
+  <div class="col-md-6">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>
+            <p>First Name</p>
+          </th>
+          <th>
+            <p>Last Name</p>
+          </th>
+          <th>
+            <p>Email</p>
+          </th>
+          <th>
+            <p>Edit</p>
+          </th>
+          <th>
+            <p>Show</p>
+          </th>
+          <th>
+            <p>Delete</p>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td>
+              <%= user.first_name %>
+            </td>
+            <td>
+              <%= user.last_name %>
+            </td>
+            <td>
+              <%= user.email %>
+            </td>
+            <% if user_signed_in? && (current_user.admin? || current_user.id == user.id) %>
+            <td>
+              <%= link_to 'Edit', edit_user_path(user) %>
+            </td>
+            <td>
+              <%= link_to 'Show', user %>
+            </td>
+            <td>
+              <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+            <% end %>
+          </tr>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
- <% end %>
-<br>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <%=link_to 'Home', root_path %>
