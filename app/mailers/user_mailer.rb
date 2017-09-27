@@ -8,7 +8,7 @@ class UserMailer < ApplicationMailer
          subject: "A new contact form message from #{name}")
   end
   
-  def Welcome(user)
+  def welcome(user)
   @appname = "Glimmer Girl Shoppe"
   mail(to: user.email,
        subject: "Welcome to #{@appname}!")
