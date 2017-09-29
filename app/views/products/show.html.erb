@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <% cache @product do %>
-
+<div class="row"> <data-product-id="<%= @product.id %>"
 <p>
   <strong>Name:</strong>
   <%= @product.name %>
@@ -26,7 +26,7 @@
   <strong>Color:</strong>
   <%= @product.color %>
 <% end %></p>
-<p>Average Rating: <div class="rated" id="average-rating" data-score="<%= @product.average_rating %>"></div> </p>
+<p>Average Rating: <div class="rated" id="average-rating" data-score="<%= @product.average_rating %>"></div></div> </p>
 
 <% if signed_in? %>
 
@@ -36,9 +36,10 @@
 <% end %><% end %>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Back', products_url %>
 
 <%= render 'new_comment' %>
+<div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
 <%= render 'comments' %>
 
 <%= will_paginate @comments %>
